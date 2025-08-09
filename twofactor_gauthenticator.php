@@ -99,6 +99,8 @@ class twofactor_gauthenticator extends rcube_plugin
     // check if user are valid from config.inc.php or true (by default) if config.inc.php not exists
     public function __pluginAllowedByConfig()
     {
+        return true;
+
         $rcmail = rcmail::get_instance();
 
         $this->load_config();
