@@ -2,7 +2,7 @@
 .buildpath
 .settings*
 .php-cs-fixer.cache
-#config.inc.php
+config.inc.php
 
 # Composer related
 vendor/
