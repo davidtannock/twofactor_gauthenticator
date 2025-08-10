@@ -471,7 +471,7 @@ class twofactor_gauthenticator extends rcube_plugin
         $arr_prefs = $user->get_prefs();
         $data = $arr_prefs['twofactor_gauthenticator'] ?? array();
         //decrypt
-        if (!is_array($data) && $rcmail->config->get('twofactor_pref_encrypt'))
+        if (!is_array($data) && $rcmail->config->get('twofactor_pref_encrypt', true))
         {
             $cdata = json_decode($rcmail->decrypt($data));
             if ($cdata == null)
@@ -496,7 +496,7 @@ class twofactor_gauthenticator extends rcube_plugin
             $data = array();
         }
         //encrypt
-        if ($data && $rcmail->config->get('twofactor_pref_encrypt'))
+        if ($data && $rcmail->config->get('twofactor_pref_encrypt', true))
         {
             $edata = $rcmail->encrypt(json_encode($data));
             $data = $edata != null ? $edata: $data;
